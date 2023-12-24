@@ -1,24 +1,17 @@
-# MIT License
-#
-# Copyright (C) The Adversarial Robustness Toolbox (ART) Authors 2020
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
-# documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
-# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
-# persons to whom the Software is furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
-# Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
-# WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-# TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+#!/usr/bin/env python
+# -*-coding:utf-8 -*-
+'''
+@File    :   attack.py
+@Time    :   2023/12/24
+@Author  :   Bowen Xu
+@License :   MIT License
+@Desc    :   SEEDProtector
+'''
+
+
 """
-This module implements Backdoor Attacks to poison data used in ML models.
+This module implements Backdoor Attacks to poison data used in ML code models.
 """
-from __future__ import absolute_import, division, print_function, unicode_literals
 
 import logging
 from typing import Callable, List, Optional, Tuple, Union
@@ -27,18 +20,7 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 
-
-class PoisoningAttack(object):
-    """
-    Implementation of backdoor attacks introduced in Gu et al., 2017.
-
-    Applies a number of backdoor perturbation functions and switches label to target label
-
-    | Paper link: https://arxiv.org/abs/1708.06733
-    """
-
-    attack_params = ["perturbation"]
-    _estimator_requirements = ()
+class Attack(object):
 
     def __init__(self, perturbation: Union[Callable, List[Callable]]) -> None:
         """
